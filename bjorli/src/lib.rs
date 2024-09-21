@@ -8,7 +8,7 @@ use game_data_structure::GameData;
 
 
 #[wasm_bindgen]
-pub fn generate_html_table_for_date() -> Result<JsValue, JsValue> {
+pub fn generate_html_table_for_date(date: &str) -> Result<JsValue, JsValue> {
     let mut game_data = GameData {
         data: HashMap::new(),
     };
@@ -18,7 +18,7 @@ pub fn generate_html_table_for_date() -> Result<JsValue, JsValue> {
     add_2022_10(&mut game_data);
     add_2024_03(&mut game_data);
 
-    if let Some(table_data) = game_data.get_table_for_date("2024-03") {
+    if let Some(table_data) = game_data.get_table_for_date(date) {
         let mut table_html = String::from("<table border='1'>");
 
         for row in table_data {
@@ -33,5 +33,5 @@ pub fn generate_html_table_for_date() -> Result<JsValue, JsValue> {
         return Ok(JsValue::from_str(&table_html));
     }
 
-    Err(JsValue::from_str("No data available for the specified date"))
+    Err(JsValue::from_str("Ingen data for denne datoen!"))
 }

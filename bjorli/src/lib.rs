@@ -3,7 +3,7 @@ use std::collections::HashMap;
 pub mod game_scores;
 pub mod game_data_structure;
 
-use game_scores::add_2021_09;
+use game_scores::{add_2021_09, add_2022_02, add_2022_10, add_2024_03};
 use game_data_structure::GameData;
 
 
@@ -14,8 +14,11 @@ pub fn generate_html_table_for_date() -> Result<JsValue, JsValue> {
     };
     
     add_2021_09(&mut game_data);
+    add_2022_02(&mut game_data);
+    add_2022_10(&mut game_data);
+    add_2024_03(&mut game_data);
 
-    if let Some(table_data) = game_data.get_table_for_date("2021-09") {
+    if let Some(table_data) = game_data.get_table_for_date("2024-03") {
         let mut table_html = String::from("<table border='1'>");
 
         for row in table_data {

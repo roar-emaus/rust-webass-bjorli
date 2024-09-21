@@ -51,7 +51,7 @@ impl GamesOnDate {
         }
         header.push("Total".to_string());
         table.push(header);
-
+    
         // Collect a unique list of player names from all games
         let mut player_names = self.games.iter()
             .flat_map(|game| game.scores.iter().map(|score| score.player_name.clone()))
@@ -59,13 +59,15 @@ impl GamesOnDate {
         
         player_names.sort();
         player_names.dedup();
-
+    
         // Create rows for each player with their scores
+        let mut player_rows = Vec::new();
+    
         for player_name in player_names {
             let mut row = vec![player_name.clone()];
             let mut total_score = 1;
             let mut participated = false;
-
+    
             for game in &self.games {
                 let score = game.scores.iter()
                     .find(|ps| ps.player_name == player_name)
@@ -79,19 +81,34 @@ impl GamesOnDate {
                     participated = true;
                 }
             }
-
+    
             // If the player didn't participate in any game, set total_score to "N/A"
             if !participated {
                 row.push("N/A".to_string());
             } else {
                 row.push(total_score.to_string());
             }
-
+    
+            player_rows.push((total_score, row));
+        }
+    
+        player_rows.sort_by(|a, b| {
+        match (a.1.last().unwrap().as_str(), b.1.last().unwrap().as_str()) {
+            ("N/A", "N/A") => std::cmp::Ordering::Equal,
+            ("N/A", _) => std::cmp::Ordering::Greater,
+            (_, "N/A") => std::cmp::Ordering::Less,
+            (a_total, b_total) => a_total.parse::<i32>().unwrap().cmp(&b_total.parse::<i32>().unwrap()),
+        }
+        });
+    
+        // Add sorted rows to the table
+        for (_, row) in player_rows {
             table.push(row);
         }
-
+    
         table
     }
+
 }
 
 // Represents the overall data structure containing data across multiple dates

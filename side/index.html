@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bjorlileika</title>
+</head>
+<body>
+    <label for="date-select">Velg dato:</label>
+    <select id="date-select" onChange="generateTable()">
+        <option value="2021-09">2021-09</option>
+        <option value="2022-02">2022-02</option>
+        <option value="2022-10">2022-10</option>
+        <option value="2024-03">2024-03</option>
+    </select>
+
+    <div id="table-container"></div>
+    <script type="module">
+        import init, { generate_html_table_for_date } from "./pkg/bjorli.js";
+
+        async function generateTable() {
+            await init();
+            const date = document.getElementById('date-select').value;
+            try {
+                const tableHtml = generate_html_table_for_date(date);
+                document.getElementById('table-container').innerHTML = tableHtml;
+            } catch (error) {
+                document.getElementById('table-container').innerHTML = "Ingen data her gitt!";
+            }
+        }
+        window.generateTable = generateTable;
+    </script>
+</body>
+</html>

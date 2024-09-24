@@ -37,7 +37,7 @@ select:focus {
 #table-container {
     margin-top: 20px;
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     overflow-x: auto;
     background-color: #fff;
     padding: 20px;

@@ -11,7 +11,7 @@ pub fn add_2024_03(game_data: &mut GameData) {
             ("Are".to_string(),    4),
             ("Roar".to_string(),   5),
             ("Morten".to_string(), 2),
-            ("Bendik".to_string(), 1),
+            ("Bendik".to_string(), 0),
             ("Peter".to_string(),  3),
             ("Magnus".to_string(), 7),
             ("Trond".to_string(),  1),
@@ -24,7 +24,7 @@ pub fn add_2024_03(game_data: &mut GameData) {
         "Beverløp",
         vec![
             ("Are".to_string(),    2),
-            ("Roar".to_string(),   1),
+            ("Roar".to_string(),   0),
             ("Morten".to_string(), 6),
             ("Bendik".to_string(), 7),
             ("Peter".to_string(),  4),
@@ -42,7 +42,7 @@ pub fn add_2024_03(game_data: &mut GameData) {
             ("Roar".to_string(),   2),
             ("Morten".to_string(), 3),
             ("Bendik".to_string(), 4),
-            ("Peter".to_string(),  1),
+            ("Peter".to_string(),  0),
             ("Magnus".to_string(), 1),
             ("Trond".to_string(),  7),
             ("Joakim".to_string(), 5),
@@ -58,7 +58,7 @@ pub fn add_2024_03(game_data: &mut GameData) {
             ("Morten".to_string(), 3),
             ("Bendik".to_string(), 1),
             ("Peter".to_string(),  5),
-            ("Magnus".to_string(), 1),
+            ("Magnus".to_string(), 0),
             ("Trond".to_string(),  4),
             ("Joakim".to_string(), 7),
             ("Bertil".to_string(), 8),
@@ -76,14 +76,14 @@ pub fn add_2024_03(game_data: &mut GameData) {
             ("Magnus".to_string(), 4),
             ("Trond".to_string(),  2),
             ("Joakim".to_string(), 6),
-            ("Bertil".to_string(), 1),
+            ("Bertil".to_string(), 0),
         ],
     );
     game_data.add_game(
         date,
         "Scavanger Mastermind",
         vec![
-            ("Are".to_string(),    1),
+            ("Are".to_string(),    0),
             ("Roar".to_string(),   1),
             ("Morten".to_string(), 7),
             ("Bendik".to_string(), 8),
@@ -104,7 +104,7 @@ pub fn add_2024_03(game_data: &mut GameData) {
             ("Bendik".to_string(), 3),
             ("Peter".to_string(),  4),
             ("Magnus".to_string(), 5),
-            ("Trond".to_string(),  1),
+            ("Trond".to_string(),  0),
             ("Joakim".to_string(), 8),
             ("Bertil".to_string(), 6),
         ],
@@ -115,7 +115,7 @@ pub fn add_2024_03(game_data: &mut GameData) {
         vec![
             ("Are".to_string(),    7),
             ("Roar".to_string(),   8),
-            ("Morten".to_string(), 1),
+            ("Morten".to_string(), 0),
             ("Bendik".to_string(), 2),
             ("Peter".to_string(),  3),
             ("Magnus".to_string(), 5),
@@ -135,7 +135,7 @@ pub fn add_2024_03(game_data: &mut GameData) {
             ("Peter".to_string(),  1),
             ("Magnus".to_string(), 5),
             ("Trond".to_string(),  7),
-            ("Joakim".to_string(), 1),
+            ("Joakim".to_string(), 0),
             ("Bertil".to_string(), 3),
         ],
     );
@@ -149,7 +149,7 @@ pub fn add_2022_10(game_data: &mut GameData) {
         date,
         "Kahooters",
         vec![
-            ("Morten".to_string(),      1),
+            ("Morten".to_string(),      0),
             ("Roar".to_string(),        6),
             ("Trond".to_string(),       1),
             ("Magnus".to_string(),      3),
@@ -167,7 +167,7 @@ pub fn add_2022_10(game_data: &mut GameData) {
             ("Roar".to_string(),        2),
             ("Trond".to_string(),       5),
             ("Magnus".to_string(),      4),
-            ("Are".to_string(),         1),
+            ("Are".to_string(),         0),
             ("Peter".to_string(),       7),
             ("Joakim".to_string(),      6),
             ("Bendik".to_string(),      3),
@@ -184,7 +184,7 @@ pub fn add_2022_10(game_data: &mut GameData) {
             ("Are".to_string(),         7),
             ("Peter".to_string(),       1),
             ("Joakim".to_string(),      6),
-            ("Bendik".to_string(),      1),
+            ("Bendik".to_string(),      0),
         ],
     );
     game_data.add_game(
@@ -192,7 +192,7 @@ pub fn add_2022_10(game_data: &mut GameData) {
         "Krigen",
         vec![
             ("Morten".to_string(),      4),
-            ("Roar".to_string(),        1),
+            ("Roar".to_string(),        0),
             ("Trond".to_string(),       3),
             ("Magnus".to_string(),      1),
             ("Are".to_string(),         2),
@@ -205,14 +205,14 @@ pub fn add_2022_10(game_data: &mut GameData) {
         date,
         "Bingo",
         vec![
-            ("Morten".to_string(),      4),
-            ("Roar".to_string(),        1),
-            ("Trond".to_string(),       3),
-            ("Magnus".to_string(),      1),
-            ("Are".to_string(),         2),
-            ("Peter".to_string(),       7),
-            ("Joakim".to_string(),      5),
-            ("Bendik".to_string(),      6),
+            ("Morten".to_string(),      5),
+            ("Roar".to_string(),        6),
+            ("Trond".to_string(),       2),
+            ("Magnus".to_string(),      3),
+            ("Are".to_string(),         7),
+            ("Peter".to_string(),       4),
+            ("Joakim".to_string(),      0),
+            ("Bendik".to_string(),      1),
         ],
     );
     game_data.add_game(
@@ -224,7 +224,7 @@ pub fn add_2022_10(game_data: &mut GameData) {
             ("Trond".to_string(),       3),
             ("Magnus".to_string(),      4),
             ("Are".to_string(),         6),
-            ("Peter".to_string(),       1),
+            ("Peter".to_string(),       0),
             ("Joakim".to_string(),      2),
             ("Bendik".to_string(),      5),
         ],
@@ -233,7 +233,7 @@ pub fn add_2022_10(game_data: &mut GameData) {
         date,
         "Huskeleik",
         vec![
-            ("Morten".to_string(),      1),
+            ("Morten".to_string(),      0),
             ("Roar".to_string(),        7),
             ("Trond".to_string(),       1),
             ("Magnus".to_string(),      5),
@@ -250,7 +250,7 @@ pub fn add_2022_10(game_data: &mut GameData) {
             ("Morten".to_string(),      7),
             ("Roar".to_string(),        1),
             ("Trond".to_string(),       5),
-            ("Magnus".to_string(),      1),
+            ("Magnus".to_string(),      0),
             ("Are".to_string(),         3),
             ("Peter".to_string(),       4),
             ("Joakim".to_string(),      6),
@@ -267,11 +267,11 @@ pub fn add_2022_02(game_data: &mut GameData) {
         "Klask-turnering",
         vec![
         ("Morten".to_string(), 1),
-        ("Roar".to_string(), 2),
-        ("Trond".to_string(), 4),
+        ("Roar".to_string(),   2),
+        ("Trond".to_string(),  4),
         ("Magnus".to_string(), 6),
-        ("Are".to_string(), 3),
-        ("Peter".to_string(), 7),
+        ("Are".to_string(),    3),
+        ("Peter".to_string(),  7),
         ("Joakim".to_string(), 5),
         ],
     );
@@ -281,11 +281,11 @@ pub fn add_2022_02(game_data: &mut GameData) {
         "Everyday I'm Shuffeling",
         vec![
         ("Morten".to_string(), 1),
-        ("Roar".to_string(), 5),
-        ("Trond".to_string(), 4),
+        ("Roar".to_string(),   5),
+        ("Trond".to_string(),  4),
         ("Magnus".to_string(), 3),
-        ("Are".to_string(), 2),
-        ("Peter".to_string(), 7),
+        ("Are".to_string(),    2),
+        ("Peter".to_string(),  7),
         ("Joakim".to_string(), 6),
         ],
     );
@@ -295,11 +295,11 @@ pub fn add_2022_02(game_data: &mut GameData) {
         "Jenga",
         vec![
         ("Morten".to_string(), 4),
-        ("Roar".to_string(), 5),
-        ("Trond".to_string(), 1),
+        ("Roar".to_string(),   5),
+        ("Trond".to_string(),  1),
         ("Magnus".to_string(), 6),
-        ("Are".to_string(), 7),
-        ("Peter".to_string(), 2),
+        ("Are".to_string(),    7),
+        ("Peter".to_string(),  2),
         ("Joakim".to_string(), 3),
         ],
     );
@@ -309,11 +309,11 @@ pub fn add_2022_02(game_data: &mut GameData) {
         "Snykastrulette",
         vec![
         ("Morten".to_string(), 2),
-        ("Roar".to_string(), 7),
-        ("Trond".to_string(), 5),
+        ("Roar".to_string(),   7),
+        ("Trond".to_string(),  5),
         ("Magnus".to_string(), 1),
-        ("Are".to_string(), 3),
-        ("Peter".to_string(), 4),
+        ("Are".to_string(),    3),
+        ("Peter".to_string(),  4),
         ("Joakim".to_string(), 6),
         ],
     );
@@ -323,11 +323,11 @@ pub fn add_2022_02(game_data: &mut GameData) {
         "Maishøl",
         vec![
         ("Morten".to_string(), 1),
-        ("Roar".to_string(), 2),
-        ("Trond".to_string(), 5),
+        ("Roar".to_string(),   2),
+        ("Trond".to_string(),  5),
         ("Magnus".to_string(), 3),
-        ("Are".to_string(), 7),
-        ("Peter".to_string(), 6),
+        ("Are".to_string(),    7),
+        ("Peter".to_string(),  6),
         ("Joakim".to_string(), 4),
         ],
     );
@@ -337,11 +337,11 @@ pub fn add_2022_02(game_data: &mut GameData) {
         "Tre eksploderende kattunger",
         vec![
         ("Morten".to_string(), 5),
-        ("Roar".to_string(), 2),
-        ("Trond".to_string(), 1),
+        ("Roar".to_string(),   2),
+        ("Trond".to_string(),  1),
         ("Magnus".to_string(), 4),
-        ("Are".to_string(), 7),
-        ("Peter".to_string(), 3),
+        ("Are".to_string(),    7),
+        ("Peter".to_string(),  3),
         ("Joakim".to_string(), 6),
         ],
     );
@@ -351,11 +351,11 @@ pub fn add_2022_02(game_data: &mut GameData) {
         "Paper Pong",
         vec![
         ("Morten".to_string(), 3),
-        ("Roar".to_string(), 1),
-        ("Trond".to_string(), 5),
+        ("Roar".to_string(),   1),
+        ("Trond".to_string(),  5),
         ("Magnus".to_string(), 4),
-        ("Are".to_string(), 2),
-        ("Peter".to_string(), 7),
+        ("Are".to_string(),    2),
+        ("Peter".to_string(),  7),
         ("Joakim".to_string(), 6),
         ],
     );
@@ -373,11 +373,11 @@ pub fn add_2021_09(game_data: &mut GameData) {
         vec![
             ("Joakim".to_string(), 2),
             ("Bendik".to_string(), 1),
-            ("Peter".to_string(), 7),
-            ("Roar".to_string(), 5),
+            ("Peter".to_string(),  7),
+            ("Roar".to_string(),   5),
             ("Morten".to_string(), 3),
-            ("Are".to_string(), 4),
-            ("Trond".to_string(), 6),
+            ("Are".to_string(),    4),
+            ("Trond".to_string(),  6),
         ],
     );
 
@@ -387,11 +387,11 @@ pub fn add_2021_09(game_data: &mut GameData) {
         vec![
             ("Joakim".to_string(), 3),
             ("Bendik".to_string(), 6),
-            ("Peter".to_string(), 2),
-            ("Roar".to_string(), 5),
+            ("Peter".to_string(),  2),
+            ("Roar".to_string(),   5),
             ("Morten".to_string(), 4),
-            ("Are".to_string(), 1),
-            ("Trond".to_string(), 7),
+            ("Are".to_string(),    1),
+            ("Trond".to_string(),  7),
         ],
     );
 
@@ -401,11 +401,11 @@ pub fn add_2021_09(game_data: &mut GameData) {
         vec![
             ("Joakim".to_string(), 2),
             ("Bendik".to_string(), 4),
-            ("Peter".to_string(), 6),
-            ("Roar".to_string(), 3),
+            ("Peter".to_string(),  6),
+            ("Roar".to_string(),   3),
             ("Morten".to_string(), 5),
-            ("Are".to_string(), 7),
-            ("Trond".to_string(), 1),
+            ("Are".to_string(),    7),
+            ("Trond".to_string(),  1),
         ],
     );
 
@@ -415,11 +415,11 @@ pub fn add_2021_09(game_data: &mut GameData) {
         vec![
             ("Joakim".to_string(), 4),
             ("Bendik".to_string(), 5),
-            ("Peter".to_string(), 2),
-            ("Roar".to_string(), 1),
+            ("Peter".to_string(),  2),
+            ("Roar".to_string(),   1),
             ("Morten".to_string(), 3),
-            ("Are".to_string(), 6),
-            ("Trond".to_string(), 7),
+            ("Are".to_string(),    6),
+            ("Trond".to_string(),  7),
         ],
     );
 
@@ -429,11 +429,11 @@ pub fn add_2021_09(game_data: &mut GameData) {
         vec![
             ("Joakim".to_string(), 3),
             ("Bendik".to_string(), 6),
-            ("Peter".to_string(), 5),
-            ("Roar".to_string(), 2),
+            ("Peter".to_string(),  5),
+            ("Roar".to_string(),   2),
             ("Morten".to_string(), 1),
-            ("Are".to_string(), 4),
-            ("Trond".to_string(), 7),
+            ("Are".to_string(),    4),
+            ("Trond".to_string(),  7),
         ],
     );
 
@@ -443,11 +443,11 @@ pub fn add_2021_09(game_data: &mut GameData) {
         vec![
             ("Joakim".to_string(), 2),
             ("Bendik".to_string(), 1),
-            ("Peter".to_string(), 3),
-            ("Roar".to_string(), 6),
+            ("Peter".to_string(),  3),
+            ("Roar".to_string(),   6),
             ("Morten".to_string(), 5),
-            ("Are".to_string(), 4),
-            ("Trond".to_string(), 7),
+            ("Are".to_string(),    4),
+            ("Trond".to_string(),  7),
         ],
     );
 
@@ -457,11 +457,11 @@ pub fn add_2021_09(game_data: &mut GameData) {
         vec![
             ("Joakim".to_string(), 5),
             ("Bendik".to_string(), 3),
-            ("Peter".to_string(), 2),
-            ("Roar".to_string(), 6),
+            ("Peter".to_string(),  2),
+            ("Roar".to_string(),   6),
             ("Morten".to_string(), 7),
-            ("Are".to_string(), 4),
-            ("Trond".to_string(), 1),
+            ("Are".to_string(),    4),
+            ("Trond".to_string(),  1),
         ],
     );
 }

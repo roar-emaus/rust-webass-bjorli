@@ -1,20 +1,20 @@
 use std::collections::HashMap;
 
-// Represents the score of a player for a game
+// Representerer poenget en deltager har fått i en lek
 #[derive(Debug, Clone)]
 pub struct PlayerScore {
     pub player_name: String,
     pub score: u32,
 }
 
-// Represents a single game on a particular date
+// Representerer et spill med et sett deltagere og deres poeng i det spillet
 #[derive(Debug, Clone)]
 pub struct Game {
     pub game_name: String,
     pub scores: Vec<PlayerScore>,
 }
 
-// Represents all games for a single date
+// Representerer et sett med leiker
 #[derive(Debug)]
 pub struct GamesOnDate {
     pub date: String,
@@ -22,57 +22,65 @@ pub struct GamesOnDate {
 }
 
 impl GamesOnDate {
-    // Calculate the total score product for a player on this date, excluding 0s
+    // Beregner produktet en deltager har for denne datoen
     pub fn total_score_for_player(&self, player_name: &str) -> u32 {
-        self.games.iter().fold(1, |acc, game| {
+        self.games.iter().fold(1, |acc, game| { // itererer over alle spill, sender inn en closure
+                                                // hvor første argument er en variabel som holder
+                                                // poengsummen og andre er spillet
             let score = game
                 .scores
                 .iter()
-                .find(|ps| ps.player_name == player_name)
-                .map(|ps| ps.score)
-                .unwrap_or(1); // Use 1 if player didn't play this game
+                .find(|ps| ps.player_name == player_name) // `find` tar inn en conditional closure
+                                                          // og returnerer første element som
+                                                          // passer conditionalen
+                .map(|ps| ps.score) // konverterer fra `PlayerScore` til en `score`
+                .unwrap_or(1); // hvis deltageren ikke har en score så blir det satt til 1
 
             if score == 0 {
-                acc // skip multiplying by 0
+                acc // hvis score er 0 så ignorerer vi den
             } else {
                 acc * score
             }
         })
     }
 
-    // Generate data in a tabular form where the first column is player names, each subsequent column is their score per game, and the last column is the total score
+    // Genererer en tabell over alle spill og deltagere med deres poeng. Deltagere som rader og spill
+    // som kolonner, der siste kolonne er totalen per deltager
     pub fn to_table(&self) -> Vec<Vec<String>> {
         let mut table = Vec::new();
         
-        // Create the header row with game names and an additional "Total" column
-        let mut header = vec!["Player".to_string()];
+        // Lager headerne med alle spillnavnene og total-kolonnen
+        let mut header = vec!["Deltager".to_string()]; // første kolonne som er deltagere
         for game in &self.games {
-            header.push(game.game_name.clone());
+            header.push(game.game_name.clone()); // legger til alle leikene
         }
-        header.push("Total".to_string());
+        header.push("Total".to_string()); // legger til total-kolonnen
         table.push(header);
     
-        // Collect a unique list of player names from all games
-        let mut player_names = self.games.iter()
+        // Henter ut alle deltagerene som deltaer
+        let mut player_names = self.games.iter() // iterer over alle leika
+            // henter ut alle deltagernavn og flater det ut til en flat iterator
             .flat_map(|game| game.scores.iter().map(|score| score.player_name.clone()))
-            .collect::<Vec<_>>();
+            .collect::<Vec<_>>(); // konverterer iteratoren til en vektor
         
-        player_names.sort();
-        player_names.dedup();
+        player_names.sort(); // sorterer alfabetisk
+        player_names.dedup(); // fjerner eventuelle duplikater av navn
     
-        // Create rows for each player with their scores
+        // Lager vektor for radene for hver deltager
         let mut player_rows = Vec::new();
     
+        // iterere over alle de unike deltagernavnene 
         for player_name in player_names {
-            let mut row = vec![player_name.clone()];
-            let mut total_score = 1;
-            let mut participated = false;
+            let mut row = vec![player_name.clone()]; // første kolonne er deltagernavnet
+            let mut total_score = 1; // beregner totalen, går raskere å gjøre det her enn å kalle
+                                     // funksjonen over
+            let mut participated = false; 
     
             for game in &self.games {
                 let score = game.scores.iter()
                     .find(|ps| ps.player_name == player_name)
                     .map(|ps| ps.score)
-                    .unwrap_or(0); // 0 if player didn't play this game
+                    .unwrap_or(0); // henter ut poenget til den spesifikke spilleren, 0 hvis spiller ikke er nevnt
                 
                 row.push(score.to_string());
                 
@@ -82,7 +90,7 @@ impl GamesOnDate {
                 }
             }
     
-            // If the player didn't participate in any game, set total_score to "N/A"
+            // hvis deltageren ikke har vært med i noen spill så totalen satt til "N/A"
             if !participated {
                 row.push("N/A".to_string());
             } else {
@@ -92,6 +100,7 @@ impl GamesOnDate {
             player_rows.push((total_score, row));
         }
     
+        // sorterer etter radene etter totalen
         player_rows.sort_by(|a, b| {
         match (a.1.last().unwrap().as_str(), b.1.last().unwrap().as_str()) {
             ("N/A", "N/A") => std::cmp::Ordering::Equal,
@@ -111,14 +120,14 @@ impl GamesOnDate {
 
 }
 
-// Represents the overall data structure containing data across multiple dates
+// Representerer kartet over alle datoer med leiker i
 #[derive(Debug)]
 pub struct GameData {
     pub data: HashMap<String, GamesOnDate>,
 }
 
 impl GameData {
-    // Add a new game on a specific date
+    // Legger til et spill på en spesifikk dato
     pub fn add_game(&mut self, date: &str, game_name: &str, player_scores: Vec<(String, u32)>) {
         let game = Game {
             game_name: game_name.to_string(),
@@ -138,14 +147,8 @@ impl GameData {
             .push(game);
     }
 
-    // Get total score for a player on a specific date
-    pub fn get_total_score(&self, date: &str, player_name: &str) -> Option<u32> {
-        self.data.get(date).map(|games_on_date| {
-            games_on_date.total_score_for_player(player_name)
-        })
-    }
 
-    // Get a table representation of the games played on a specific date
+    // Henter ut tabellen for en gitt dato
     pub fn get_table_for_date(&self, date: &str) -> Option<Vec<Vec<String>>> {
         self.data.get(date).map(|games_on_date| games_on_date.to_table())
     }

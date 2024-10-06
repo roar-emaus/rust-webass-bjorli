@@ -1,8 +1,8 @@
 /* General body styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: #a87c5a; /* Brownish color to mimic a beaver's fur */
+    color: #3b2f27; /* Dark brown for text */
     margin: 0;
     padding: 20px;
     display: flex;
@@ -10,27 +10,30 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); /* Adds some texture */
 }
 
 /* Styling for the label and select elements */
 label {
-    font-size: 1.2em;
+    font-size: 1.5em;
     margin-right: 10px;
+    color: #2e1c12; /* Deep brown color */
 }
 
 select {
-    padding: 8px 12px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    transition: border-color 0.3s;
+    padding: 10px 14px;
+    font-size: 1.1em;
+    border: 2px solid #5c3b1e; /* Dark wood-like border */
+    border-radius: 6px;
+    background-color: #d2b48c; /* Tan color, like wood */
+    transition: border-color 0.3s, background-color 0.3s;
 }
 
 select:hover,
 select:focus {
-    border-color: #007bff;
+    border-color: #8b5e34; /* Lighter wood accent */
     outline: none;
+    background-color: #b08a65; /* Darker wood when focused */
 }
 
 /* Container for the table */
@@ -39,10 +42,11 @@ select:focus {
     width: 100%;
     max-width: 1000px;
     overflow-x: auto;
-    background-color: #fff;
+    background-color: #f1e3d3; /* Light tan, like wood shavings */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+    border: 3px solid #5c3b1e; /* Dark wood border */
 }
 
 /* Styling the table itself */
@@ -50,21 +54,22 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 0 auto;
+    background-color: #fffaf0; /* Light cream for a natural look */
 }
 
 th, td {
-    padding: 10px;
+    padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #8b5e34; /* Lighter brown for dividing lines */
 }
 
 th {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #5c3b1e; /* Dark wood color */
+    color: #f1e3d3; /* Light color for contrast */
 }
 
 tr:hover {
-    background-color: #f1f1f1;
+    background-color: #d2b48c; /* Tan color for hover effect */
 }
 
 td {
@@ -72,7 +77,97 @@ td {
 }
 
 td:hover {
-    background-color: #e0e7ff;
+    background-color: #c1a076; /* Slightly darker tan when hovered */
+}
+
+/* Beaver illustration using CSS */
+#bever {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    background-color: #8b5e34; /* Beaver body color */
+    border-radius: 80% 80% 60% 60%;
+    margin-top: 40px;
+    animation: beaver-bob 2s infinite ease-in-out; /* Bobbing animation */
+}
+
+#bever::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 40px;
+    width: 70px;
+    height: 70px;
+    background-color: #8b5e34; /* Beaver head color */
+    border-radius: 50%;
+    animation: beaver-head-bob 2s infinite ease-in-out; /* Head bobbing animation */
+}
+
+#bever::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    width: 100px;
+    height: 40px;
+    background-color: #5c3b1e; /* Beaver tail color */
+    border-radius: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    animation: tail-wag 1.5s infinite ease-in-out; /* Tail wagging animation */
+}
+
+.eye {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    border-radius: 50%;
+    transform: translateX(-35px);
+}
+
+.eye.right {
+    transform: translateX(5px);
+}
+
+.tooth {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 10px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 2px;
+    transform: translateX(-5px);
+}
+
+/* Animations */
+@keyframes beaver-bob {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes beaver-head-bob {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes tail-wag {
+    0%, 100% {
+        transform: translateX(-50%) rotate(45deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(35deg);
+    }
 }
 
 /* Mobile responsiveness */
@@ -82,15 +177,14 @@ td:hover {
     }
 
     label, select {
-        font-size: 1em;
+        font-size: 1.2em;
     }
 
     #table-container {
-        padding: 10px;
+        padding: 15px;
     }
 
     th, td {
-        padding: 8px;
+        padding: 10px;
     }
 }
-

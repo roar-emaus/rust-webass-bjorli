@@ -9,10 +9,10 @@
 <body>
     <label for="date-select">Velg dato:</label>
     <select id="date-select" onChange="generateTable()">
-        <option value="2021-09">2021-09</option>
-        <option value="2022-02">2022-02</option>
+        <option value="2024-03" selected>2024-03</option>
         <option value="2022-10">2022-10</option>
-        <option value="2024-03">2024-03</option>
+        <option value="2022-02">2022-02</option>
+        <option value="2021-09">2021-09</option>
     </select>
 
     <div id="table-container"></div>
@@ -30,6 +30,7 @@
             }
         }
         window.generateTable = generateTable;
+        document.addEventListener("DOMContentLoaded", generateTable);
     </script>
 </body>
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bever.css">
     <title>Bjorlileika</title>
 </head>
 <body>
@@ -16,12 +17,15 @@
     </select>
 
     <div id="table-container"></div>
-    <div id="bever">
+    <div class="beaver-container">
+      <div class="tail"></div>
+      <div class="beaver">
+        <div class="ear"></div>
         <div class="eye"></div>
-        <div class="eye right"></div>
+        <div class="nose"></div>
         <div class="tooth"></div>
+      </div>
     </div>
-
     <script type="module">
         import init, { generate_html_table_for_date } from "./pkg/bjorli.js";
 

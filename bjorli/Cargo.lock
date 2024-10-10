@@ -63,7 +63,6 @@ dependencies = [
  "reqwest",
  "serde",
  "serde-wasm-bindgen",
- "serde_json",
  "wasm-bindgen",
  "wasm-bindgen-futures",
 ]

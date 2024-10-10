@@ -1,6 +1,7 @@
 use serde::{Deserialize, Serialize};
 use reqwest::Client;
 
+// Representerer responsen som kommer fra open-meteo api'et
 #[derive(Debug, Deserialize)]
 pub struct WeatherResponse {
     pub latitude: f64,
@@ -9,12 +10,14 @@ pub struct WeatherResponse {
     pub hourly: HourlyData,
 }
 
+// Representerer timedataen
 #[derive(Debug, Deserialize)]
 pub struct HourlyData {
     pub time: Vec<String>,
     pub temperature_2m: Vec<f64>,
 }
 
+// Representerer dataen etter den har blitt serialisert
 #[derive(Debug, Serialize)]
 pub struct WeatherData {
     pub latitude: f64,
@@ -25,6 +28,7 @@ pub struct WeatherData {
 }
 
 impl WeatherData {
+    // funksjonen som konverterer fra WeatherResponse til WeatherData
     pub fn from_response(resp: WeatherResponse) -> Self {
         WeatherData {
             latitude: resp.latitude,
@@ -36,6 +40,7 @@ impl WeatherData {
     }
 }
 
+// Funksjonen som henter data fra open-meteo og konverterer den til WeatherData
 pub async fn fetch_weather_data(latitude: f64, longitude: f64) -> Result<WeatherData, String> {
     let client = Client::new();
     let url = format!(

@@ -2,6 +2,7 @@ use wasm_bindgen::prelude::*;
 use std::collections::HashMap;
 pub mod game_scores;
 pub mod game_data_structure;
+pub mod weather;
 
 use game_scores::{add_2021_09, add_2022_02, add_2022_10, add_2024_03};
 use game_data_structure::GameData;

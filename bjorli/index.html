@@ -26,8 +26,16 @@
         <div class="tooth"></div>
       </div>
     </div>
+
+    <h1>Weather Data</h1>
+    <div id="weather-container">
+        <textarea id="weather-textbox" readonly></textarea>
+    </div>
+
     <script type="module">
-        import init, { generate_html_table_for_date } from "./pkg/bjorli.js";
+        import init, { generate_html_table_for_date, get_weather_data} from "./pkg/bjorli.js";
+        const latitude = 52.52;
+        const longitude = 13.41;
 
         async function generateTable() {
             await init();
@@ -35,6 +43,12 @@
             try {
                 const tableHtml = generate_html_table_for_date(date);
                 document.getElementById('table-container').innerHTML = tableHtml;
+                
+                const weatherData = await get_weather_data(latitude, longitude);
+
+                // Dump the raw weather data into the text box
+                const textbox = document.getElementById('weather-textbox');
+                textbox.value = JSON.stringify(weatherData, null, 2); // Pretty-print with indentation
             } catch (error) {
                 document.getElementById('table-container').innerHTML = "Ingen data her gitt!";
             }

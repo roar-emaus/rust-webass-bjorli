@@ -1,24 +1,24 @@
-/* General body styling */
+/* General Body Styling */
 body {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: #a87c5a; /* Brownish color to mimic a beaver's fur */
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); /* Adds some texture */
     color: #3b2f27; /* Dark brown for text */
     margin: 0;
     padding: 20px;
     display: grid;
     grid-template-areas:
+        "weather"
         "controls"
         "table"
-        "beaver"
-        "weather";
+        "beaver";
     grid-gap: 20px;
     justify-items: center;
     align-items: start;
     min-height: 100vh;
-    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); /* Adds some texture */
 }
 
-/* Grid areas */
+/* Grid Areas */
 .controls {
     grid-area: controls;
     display: grid;
@@ -39,7 +39,7 @@ body {
     border: 3px solid #5c3b1e; /* Dark wood border */
 }
 
-/* Styling the table itself */
+/* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -70,7 +70,7 @@ td:hover {
     background-color: #c1a076; /* Slightly darker tan when hovered */
 }
 
-/* Beaver container styling */
+/* Beaver Container Styling */
 .beaver-container {
     grid-area: beaver;
     display: flex;
@@ -79,32 +79,68 @@ td:hover {
     /* Additional styling as needed */
 }
 
-
-/* Weather container styling */
+/* Weather Container Styling */
 #weather-container {
     grid-area: weather;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Reduced gap for compactness */
     width: 100%;
-    max-width: 1000px;
+    max-width: 800px; /* Adjust as per your score table width */
     background-color: #f1e3d3; /* Light tan */
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    border: 3px solid #5c3b1e;
-}
-
-#weather-textbox {
-    width: 100%;
-    height: 200px;
-    padding: 10px;
-    font-size: 1em;
+    padding: 10px; /* Reduced padding */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border: 2px solid #5c3b1e;
-    border-radius: 6px;
-    background-color: #fffaf0;
-    resize: none;
     box-sizing: border-box;
+    margin: 10px auto; /* Center the container with reduced margin */
 }
 
-/* Styling for the label and select elements */
+/* Weather Card Styling */
+.weather-card {
+    background-color: #fffaf0;
+    padding: 8px; /* Reduced padding */
+    border: 1px solid #5c3b1e;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.9em; /* Smaller font size */
+    width: 100px; /* Fixed width for consistency */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Weather Icon */
+.weather-icon {
+    font-size: 20px; /* Smaller icon size */
+    margin-bottom: 4px;
+    color: #ffcc00;
+}
+
+/* Weather Date */
+.weather-date {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #333;
+    font-size: 0.95em; /* Smaller font size */
+}
+
+/* Weather Temperature */
+.weather-temp {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em; /* Smaller font size */
+    color: #555;
+}
+
+.weather-temp i {
+    margin-right: 3px; /* Space between icon and text */
+    font-size: 14px; /* Icon size within temperature */
+    color: #5c3b1e;
+}
+
+/* Label and Select Styling */
 label {
     font-size: 1.5em;
     color: #2e1c12; /* Deep brown color */
@@ -126,15 +162,38 @@ select:focus {
     background-color: #b08a65; /* Darker wood when focused */
 }
 
-/* Mobile responsiveness */
+/* Responsive Design */
 @media (max-width: 600px) {
     body {
         padding: 10px;
-        grid-template-areas:
-            "controls"
-            "table"
-            "beaver"
-            "weather";
+    }
+
+    #weather-container {
+        max-width: 100%;
+        padding: 8px;
+        gap: 8px;
+    }
+
+    .weather-card {
+        width: 80px;
+        padding: 6px;
+        font-size: 0.8em;
+    }
+
+    .weather-icon {
+        font-size: 18px;
+    }
+
+    .weather-date {
+        font-size: 0.8em;
+    }
+
+    .weather-temp {
+        font-size: 0.75em;
+    }
+
+    .weather-temp i {
+        font-size: 12px;
     }
 
     .controls {
@@ -142,15 +201,18 @@ select:focus {
         text-align: center;
     }
 
-    label, select {
+    label,
+    select {
         font-size: 1.2em;
     }
 
-    #table-container, #weather-container {
+    #table-container,
+    #weather-container {
         padding: 15px;
     }
 
-    th, td {
+    th,
+    td {
         padding: 10px;
     }
-}
+

@@ -8,7 +8,7 @@ pub mod weather;
 
 use game_scores::{add_2021_09, add_2022_02, add_2022_10, add_2024_03};
 use game_data_structure::GameData;
-use weather::fetch_weather_data;
+use weather::{fetch_weather_data, DailyWeatherData};
 
 
 #[wasm_bindgen]
@@ -45,6 +45,21 @@ pub async fn get_weather_data(latitude: f64, longitude: f64) -> Result<JsValue, 
     match fetch_weather_data(latitude, longitude).await {
         Ok(weather_data) => to_value(&weather_data)
             .map_err(|err| JsValue::from_str(&format!("Serialization error: {}", err))),
+        Err(err) => Err(JsValue::from_str(&err)),
+    }
+}
+
+#[wasm_bindgen]
+pub async fn get_daily_weather(latitude: f64, longitude: f64) -> Result<JsValue, JsValue> {
+    match fetch_weather_data(latitude, longitude).await {
+        Ok(weather_data) => {
+            let daily_temperatures = weather_data.compute_daily_temperatures();
+            let daily_weather = DailyWeatherData {
+                daily_temperatures,
+            };
+            to_value(&daily_weather)
+                .map_err(|err| JsValue::from_str(&format!("Serialization error: {}", err)))
+        },
         Err(err) => Err(JsValue::from_str(&err)),
     }
 }

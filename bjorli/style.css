@@ -5,40 +5,30 @@ body {
     color: #3b2f27; /* Dark brown for text */
     margin: 0;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "controls"
+        "table"
+        "beaver"
+        "weather";
+    grid-gap: 20px;
+    justify-items: center;
+    align-items: start;
+    min-height: 100vh;
     background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); /* Adds some texture */
 }
 
-/* Styling for the label and select elements */
-label {
-    font-size: 1.5em;
-    margin-right: 10px;
-    color: #2e1c12; /* Deep brown color */
+/* Grid areas */
+.controls {
+    grid-area: controls;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 10px;
 }
 
-select {
-    padding: 10px 14px;
-    font-size: 1.1em;
-    border: 2px solid #5c3b1e; /* Dark wood-like border */
-    border-radius: 6px;
-    background-color: #d2b48c; /* Tan color, like wood */
-    transition: border-color 0.3s, background-color 0.3s;
-}
-
-select:hover,
-select:focus {
-    border-color: #8b5e34; /* Lighter wood accent */
-    outline: none;
-    background-color: #b08a65; /* Darker wood when focused */
-}
-
-/* Container for the table */
 #table-container {
-    margin-top: 20px;
+    grid-area: table;
     width: 100%;
     max-width: 1000px;
     overflow-x: auto;
@@ -80,17 +70,83 @@ td:hover {
     background-color: #c1a076; /* Slightly darker tan when hovered */
 }
 
+/* Beaver container styling */
+.beaver-container {
+    grid-area: beaver;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Additional styling as needed */
+}
+
+
+/* Weather container styling */
+#weather-container {
+    grid-area: weather;
+    width: 100%;
+    max-width: 1000px;
+    background-color: #f1e3d3; /* Light tan */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border: 3px solid #5c3b1e;
+}
+
+#weather-textbox {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #5c3b1e;
+    border-radius: 6px;
+    background-color: #fffaf0;
+    resize: none;
+    box-sizing: border-box;
+}
+
+/* Styling for the label and select elements */
+label {
+    font-size: 1.5em;
+    color: #2e1c12; /* Deep brown color */
+}
+
+select {
+    padding: 10px 14px;
+    font-size: 1.1em;
+    border: 2px solid #5c3b1e; /* Dark wood-like border */
+    border-radius: 6px;
+    background-color: #d2b48c; /* Tan color, like wood */
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+select:hover,
+select:focus {
+    border-color: #8b5e34; /* Lighter wood accent */
+    outline: none;
+    background-color: #b08a65; /* Darker wood when focused */
+}
+
 /* Mobile responsiveness */
 @media (max-width: 600px) {
     body {
         padding: 10px;
+        grid-template-areas:
+            "controls"
+            "table"
+            "beaver"
+            "weather";
+    }
+
+    .controls {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
 
     label, select {
         font-size: 1.2em;
     }
 
-    #table-container {
+    #table-container, #weather-container {
         padding: 15px;
     }
 

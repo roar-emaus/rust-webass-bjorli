@@ -8,27 +8,30 @@
     <title>Bjorlileika</title>
 </head>
 <body>
-    <label for="date-select">Velg dato:</label>
-    <select id="date-select" onChange="generateTable()">
-        <option value="2024-03" selected>2024-03</option>
-        <option value="2022-10">2022-10</option>
-        <option value="2022-02">2022-02</option>
-        <option value="2021-09">2021-09</option>
-    </select>
-
-    <div id="table-container"></div>
-    <div class="beaver-container">
-      <div class="tail"></div>
-      <div class="beaver">
-        <div class="ear"></div>
-        <div class="eye"></div>
-        <div class="nose"></div>
-        <div class="tooth"></div>
-      </div>
+    <div class="controls">
+        <label for="date-select">Velg dato:</label>
+        <select id="date-select" onChange="generateTable()">
+            <option value="2024-03" selected>2024-03</option>
+            <option value="2022-10">2022-10</option>
+            <option value="2022-02">2022-02</option>
+            <option value="2021-09">2021-09</option>
+        </select>
     </div>
 
-    <h1>Weather Data</h1>
+    <div id="table-container"></div>
+
+    <div class="beaver-container">
+        <div class="tail"></div>
+        <div class="beaver">
+            <div class="ear"></div>
+            <div class="eye"></div>
+            <div class="nose"></div>
+            <div class="tooth"></div>
+        </div>
+    </div>
+
     <div id="weather-container">
+    <h1>Weather Data</h1>
         <textarea id="weather-textbox" readonly></textarea>
     </div>
 

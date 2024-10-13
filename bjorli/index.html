@@ -1,46 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="bever.css">
-    <title>Bjorlileika</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="bever.css">
+  <title>Bjorlileika</title>
 </head>
 <body>
-    <label for="date-select">Velg dato:</label>
-    <select id="date-select" onChange="generateTable()">
-        <option value="2024-03" selected>2024-03</option>
-        <option value="2022-10">2022-10</option>
-        <option value="2022-02">2022-02</option>
-        <option value="2021-09">2021-09</option>
-    </select>
+  <div id="weather-container">
+      <!-- Weather data will be injected here by JavaScript -->
+  </div>
 
-    <div id="table-container"></div>
-    <div class="beaver-container">
+  <div class="controls">
+      <label for="date-select">Velg dato:</label>
+      <select id="date-select" onChange="generateTable()">
+          <option value="2024-03" selected>2024-03</option>
+          <option value="2022-10">2022-10</option>
+          <option value="2022-02">2022-02</option>
+          <option value="2021-09">2021-09</option>
+      </select>
+  </div>
+
+  <div id="table-container"></div>
+
+  <div class="beaver-container">
       <div class="tail"></div>
       <div class="beaver">
-        <div class="ear"></div>
-        <div class="eye"></div>
-        <div class="nose"></div>
-        <div class="tooth"></div>
+          <div class="ear"></div>
+          <div class="eye"></div>
+          <div class="nose"></div>
+          <div class="tooth"></div>
       </div>
-    </div>
-    <script type="module">
-        import init, { generate_html_table_for_date } from "./pkg/bjorli.js";
+  </div>
 
-        async function generateTable() {
-            await init();
-            const date = document.getElementById('date-select').value;
-            try {
-                const tableHtml = generate_html_table_for_date(date);
-                document.getElementById('table-container').innerHTML = tableHtml;
-            } catch (error) {
-                document.getElementById('table-container').innerHTML = "Ingen data her gitt!";
-            }
+  <script type="module">
+    import init, { generate_html_table_for_date, get_weather_data, get_daily_weather } from "./pkg/bjorli.js";
+    const latitude = 62.2556856;
+    const longitude = 8.2051963;
+    
+    async function initializeApp() {
+      try {
+          await init();
+
+          await generateTable();
+          await generateWeather();
+      } catch (error) {
+          console.error("Failed to initialize Wasm module:", error);
+      }
+    }
+
+    async function generateTable() {
+        await init();
+        const date = document.getElementById('date-select').value;
+        try {
+            const tableHtml = generate_html_table_for_date(date);
+            document.getElementById('table-container').innerHTML = tableHtml;
+
+        } catch (error) {
+            document.getElementById('table-container').innerHTML = "Ingen data her gitt!";
         }
-        window.generateTable = generateTable;
-        document.addEventListener("DOMContentLoaded", generateTable);
-    </script>
+    }
+    async function generateWeather() {
+       // Function to determine the weather icon based on temperature or other criteria
+      function getWeatherIcon(maxTemp) {
+          if (maxTemp >= 20) {
+              return 'fas fa-sun'; // Hot
+          } else if (maxTemp >= 15) {
+              return 'fas fa-cloud-sun'; // Warm
+          } else if (maxTemp >= 10) {
+              return 'fas fa-cloud'; // Cool
+          } else if (maxTemp >= 0) {
+              return 'fas fa-cloud-rain'; // Cold
+          } else {
+              return 'fas fa-snowflake'; // Very Cold
+          }
+      }
+
+      try {
+        const container = document.getElementById('weather-container');
+        const dailyWeatherData = await get_daily_weather(latitude, longitude);
+        console.log("Daily Weather Data:", dailyWeatherData);
+  
+        dailyWeatherData.daily_temperatures.forEach(day => { // Corrected variable name
+          // Create weather card
+          const card = document.createElement('div');
+          card.classList.add('weather-card');
+
+          // Date
+          const date = document.createElement('div');
+          date.classList.add('weather-date');
+          date.textContent = day.date;
+          card.appendChild(date);
+
+          // Weather Icon
+          const icon = document.createElement('i');
+          icon.className = `weather-icon ${getWeatherIcon(day.max_temperature)}`;
+          card.appendChild(icon);
+
+          // Max Temperature
+          const maxTemp = document.createElement('div');
+          maxTemp.classList.add('weather-temp');
+          const maxTempIcon = document.createElement('i');
+          maxTempIcon.className = 'fas fa-temperature-high';
+          maxTemp.appendChild(maxTempIcon);
+          const maxTempText = document.createElement('span');
+          maxTempText.textContent = `${day.max_temperature}°C`;
+          maxTemp.appendChild(maxTempText);
+          card.appendChild(maxTemp);
+
+          // Min Temperature
+          const minTemp = document.createElement('div');
+          minTemp.classList.add('weather-temp');
+          const minTempIcon = document.createElement('i');
+          minTempIcon.className = 'fas fa-temperature-low';
+          minTemp.appendChild(minTempIcon);
+          const minTempText = document.createElement('span');
+          minTempText.textContent = `${day.min_temperature}°C`;
+          minTemp.appendChild(minTempText);
+          card.appendChild(minTemp);
+
+          // Append card to container
+          container.appendChild(card);
+        });
+      } catch (error) {
+          console.error("Error generating weather grid:", error);
+      }
+    }
+    window.generateTable = generateTable;
+    window.generateWeather = generateWeather;
+    
+    // Initialize the app once the DOM is fully loaded
+    document.addEventListener("DOMContentLoaded", initializeApp);
+  </script>
 </body>
 </html>

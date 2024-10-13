@@ -1,44 +1,34 @@
-/* General body styling */
+/* General Body Styling */
 body {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: #a87c5a; /* Brownish color to mimic a beaver's fur */
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); /* Adds some texture */
     color: #3b2f27; /* Dark brown for text */
     margin: 0;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-areas:
+        "weather"
+        "controls"
+        "table"
+        "beaver";
+    grid-gap: 20px;
+    justify-items: center;
+    align-items: start;
+    min-height: 100vh;
+}
+
+/* Grid Areas */
+.controls {
+    grid-area: controls;
+    display: grid;
+    grid-template-columns: auto auto;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); /* Adds some texture */
+    gap: 10px;
 }
 
-/* Styling for the label and select elements */
-label {
-    font-size: 1.5em;
-    margin-right: 10px;
-    color: #2e1c12; /* Deep brown color */
-}
-
-select {
-    padding: 10px 14px;
-    font-size: 1.1em;
-    border: 2px solid #5c3b1e; /* Dark wood-like border */
-    border-radius: 6px;
-    background-color: #d2b48c; /* Tan color, like wood */
-    transition: border-color 0.3s, background-color 0.3s;
-}
-
-select:hover,
-select:focus {
-    border-color: #8b5e34; /* Lighter wood accent */
-    outline: none;
-    background-color: #b08a65; /* Darker wood when focused */
-}
-
-/* Container for the table */
 #table-container {
-    margin-top: 20px;
+    grid-area: table;
     width: 100%;
     max-width: 1000px;
     overflow-x: auto;
@@ -49,7 +39,7 @@ select:focus {
     border: 3px solid #5c3b1e; /* Dark wood border */
 }
 
-/* Styling the table itself */
+/* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -80,21 +70,149 @@ td:hover {
     background-color: #c1a076; /* Slightly darker tan when hovered */
 }
 
-/* Mobile responsiveness */
+/* Beaver Container Styling */
+.beaver-container {
+    grid-area: beaver;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Additional styling as needed */
+}
+
+/* Weather Container Styling */
+#weather-container {
+    grid-area: weather;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Reduced gap for compactness */
+    width: 100%;
+    max-width: 800px; /* Adjust as per your score table width */
+    background-color: #f1e3d3; /* Light tan */
+    padding: 10px; /* Reduced padding */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid #5c3b1e;
+    box-sizing: border-box;
+    margin: 10px auto; /* Center the container with reduced margin */
+}
+
+/* Weather Card Styling */
+.weather-card {
+    background-color: #fffaf0;
+    padding: 8px; /* Reduced padding */
+    border: 1px solid #5c3b1e;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.9em; /* Smaller font size */
+    width: 100px; /* Fixed width for consistency */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Weather Icon */
+.weather-icon {
+    font-size: 20px; /* Smaller icon size */
+    margin-bottom: 4px;
+    color: #ffcc00;
+}
+
+/* Weather Date */
+.weather-date {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #333;
+    font-size: 0.95em; /* Smaller font size */
+}
+
+/* Weather Temperature */
+.weather-temp {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em; /* Smaller font size */
+    color: #555;
+}
+
+.weather-temp i {
+    margin-right: 3px; /* Space between icon and text */
+    font-size: 14px; /* Icon size within temperature */
+    color: #5c3b1e;
+}
+
+/* Label and Select Styling */
+label {
+    font-size: 1.5em;
+    color: #2e1c12; /* Deep brown color */
+}
+
+select {
+    padding: 10px 14px;
+    font-size: 1.1em;
+    border: 2px solid #5c3b1e; /* Dark wood-like border */
+    border-radius: 6px;
+    background-color: #d2b48c; /* Tan color, like wood */
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+select:hover,
+select:focus {
+    border-color: #8b5e34; /* Lighter wood accent */
+    outline: none;
+    background-color: #b08a65; /* Darker wood when focused */
+}
+
+/* Responsive Design */
 @media (max-width: 600px) {
     body {
         padding: 10px;
     }
 
-    label, select {
+    #weather-container {
+        max-width: 100%;
+        padding: 8px;
+        gap: 8px;
+    }
+
+    .weather-card {
+        width: 80px;
+        padding: 6px;
+        font-size: 0.8em;
+    }
+
+    .weather-icon {
+        font-size: 18px;
+    }
+
+    .weather-date {
+        font-size: 0.8em;
+    }
+
+    .weather-temp {
+        font-size: 0.75em;
+    }
+
+    .weather-temp i {
+        font-size: 12px;
+    }
+
+    .controls {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    label,
+    select {
         font-size: 1.2em;
     }
 
-    #table-container {
+    #table-container,
+    #weather-container {
         padding: 15px;
     }
 
-    th, td {
+    th,
+    td {
         padding: 10px;
     }
-}
+

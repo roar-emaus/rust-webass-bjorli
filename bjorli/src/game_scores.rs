@@ -1,5 +1,22 @@
 use crate::game_data_structure::GameData;
 
+pub fn add_2024_11(game_data: &mut GameData) {
+    let date = "2024-11";
+    game_data.add_game(
+        date,
+        "Midlertidlig",
+        vec![
+            ("Are".to_string(),    0),
+            ("Roar".to_string(),   0),
+            ("Morten".to_string(), 0),
+            ("Bendik".to_string(), 0),
+            ("Peter".to_string(),  0),
+            ("Magnus".to_string(), 0),
+            ("Trond".to_string(),  0),
+            ("Joakim".to_string(), 0),
+        ],
+    );
+}
 
 pub fn add_2024_03(game_data: &mut GameData) {
     let date = "2024-03";

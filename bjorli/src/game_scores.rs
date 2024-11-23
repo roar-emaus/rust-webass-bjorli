@@ -4,7 +4,105 @@ pub fn add_2024_11(game_data: &mut GameData) {
     let date = "2024-11";
     game_data.add_game(
         date,
-        "Midlertidlig",
+        "F-Zero",
+        vec![
+            ("Are".to_string(),    5),
+            ("Roar".to_string(),   6),
+            ("Morten".to_string(), 1),
+            ("Bendik".to_string(), 3),
+            ("Peter".to_string(),  4),
+            ("Magnus".to_string(), 2),
+            ("Trond".to_string(),  7),
+            ("Joakim".to_string(), 0),
+        ],
+    );
+    game_data.add_game(
+        date,
+        "UDM",
+        vec![
+            ("Are".to_string(),    5),
+            ("Roar".to_string(),   0),
+            ("Morten".to_string(), 2),
+            ("Bendik".to_string(), 4),
+            ("Peter".to_string(),  6),
+            ("Magnus".to_string(), 3),
+            ("Trond".to_string(),  1),
+            ("Joakim".to_string(), 7),
+        ],
+    );
+    game_data.add_game(
+        date,
+        "Snurrebassen",
+        vec![
+            ("Are".to_string(),    3),
+            ("Roar".to_string(),   2),
+            ("Morten".to_string(), 1),
+            ("Bendik".to_string(), 0),
+            ("Peter".to_string(),  6),
+            ("Magnus".to_string(), 5),
+            ("Trond".to_string(),  4),
+            ("Joakim".to_string(), 7),
+        ],
+    );
+    game_data.add_game(
+        date,
+        "Femkamp",
+        vec![
+            ("Are".to_string(),    0),
+            ("Roar".to_string(),   2),
+            ("Morten".to_string(), 7),
+            ("Bendik".to_string(), 6),
+            ("Peter".to_string(),  1),
+            ("Magnus".to_string(), 3),
+            ("Trond".to_string(),  4),
+            ("Joakim".to_string(), 5),
+        ],
+    );
+    game_data.add_game(
+        date,
+        "1000 Spørsmål",
+        vec![
+            ("Are".to_string(),    7),
+            ("Roar".to_string(),   1),
+            ("Morten".to_string(), 2),
+            ("Bendik".to_string(), 6),
+            ("Peter".to_string(),  0),
+            ("Magnus".to_string(), 5),
+            ("Trond".to_string(),  4),
+            ("Joakim".to_string(), 3),
+        ],
+    );
+    game_data.add_game(
+        date,
+        "Quizzy",
+        vec![
+            ("Are".to_string(),    7),
+            ("Roar".to_string(),   4),
+            ("Morten".to_string(), 6),
+            ("Bendik".to_string(), 1),
+            ("Peter".to_string(),  3),
+            ("Magnus".to_string(), 2),
+            ("Trond".to_string(),  0),
+            ("Joakim".to_string(), 5),
+        ],
+    );
+    game_data.add_game(
+        date,
+        "Snart",
+        vec![
+            ("Are".to_string(),    0),
+            ("Roar".to_string(),   0),
+            ("Morten".to_string(), 0),
+            ("Bendik".to_string(), 0),
+            ("Peter".to_string(),  0),
+            ("Magnus".to_string(), 0),
+            ("Trond".to_string(),  0),
+            ("Joakim".to_string(), 0),
+        ],
+    );
+    game_data.add_game(
+        date,
+        "Snart",
         vec![
             ("Are".to_string(),    0),
             ("Roar".to_string(),   0),

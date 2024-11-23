@@ -88,16 +88,16 @@ pub fn add_2024_11(game_data: &mut GameData) {
     );
     game_data.add_game(
         date,
-        "Snart",
+        "Springe Frank",
         vec![
-            ("Are".to_string(),    0),
-            ("Roar".to_string(),   0),
-            ("Morten".to_string(), 0),
-            ("Bendik".to_string(), 0),
-            ("Peter".to_string(),  0),
+            ("Are".to_string(),    3),
+            ("Roar".to_string(),   2),
+            ("Morten".to_string(), 5),
+            ("Bendik".to_string(), 1),
+            ("Peter".to_string(),  6),
             ("Magnus".to_string(), 0),
-            ("Trond".to_string(),  0),
-            ("Joakim".to_string(), 0),
+            ("Trond".to_string(),  4),
+            ("Joakim".to_string(), 7),
         ],
     );
     game_data.add_game(

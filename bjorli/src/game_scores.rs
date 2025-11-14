@@ -44,6 +44,20 @@ pub fn add_2025_11(game_data: &mut GameData) {
             ("Joakim".to_string(), 7),
         ],
     );
+    game_data.add_game(
+        date,
+        "Suck it!",
+        vec![
+            ("Are".to_string(),    3),
+            ("Roar".to_string(),   2),
+            ("Morten".to_string(), 6),
+            ("Bendik".to_string(), 1),
+            ("Peter".to_string(),  7),
+            ("Magnus".to_string(), 5),
+            ("Trond".to_string(),  4),
+            ("Joakim".to_string(), 0),
+        ],
+    );
 }
 
 pub fn add_2024_11(game_data: &mut GameData) {

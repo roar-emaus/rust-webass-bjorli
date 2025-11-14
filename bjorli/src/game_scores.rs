@@ -1,5 +1,51 @@
 use crate::game_data_structure::GameData;
 
+pub fn add_2025_11(game_data: &mut GameData) {
+    let date = "2025-11";
+    game_data.add_game(
+        date,
+        "8 out of 10 cats",
+        vec![
+            ("Are".to_string(),    1),
+            ("Roar".to_string(),   0),
+            ("Morten".to_string(), 2),
+            ("Bendik".to_string(), 5),
+            ("Peter".to_string(),  7),
+            ("Magnus".to_string(), 6),
+            ("Trond".to_string(),  3),
+            ("Joakim".to_string(), 4),
+        ],
+    );
+    game_data.add_game(
+        date,
+        "GeoGuessr butikkedition",
+        vec![
+            ("Are".to_string(),    4),
+            ("Roar".to_string(),   3),
+            ("Morten".to_string(), 2),
+            ("Bendik".to_string(), 5),
+            ("Peter".to_string(),  6),
+            ("Magnus".to_string(), 0),
+            ("Trond".to_string(),  1),
+            ("Joakim".to_string(), 7),
+        ],
+    );
+    game_data.add_game(
+        date,
+        "På kroken",
+        vec![
+            ("Are".to_string(),    4),
+            ("Roar".to_string(),   1),
+            ("Morten".to_string(), 2),
+            ("Bendik".to_string(), 0),
+            ("Peter".to_string(),  3),
+            ("Magnus".to_string(), 6),
+            ("Trond".to_string(),  5),
+            ("Joakim".to_string(), 7),
+        ],
+    );
+}
+
 pub fn add_2024_11(game_data: &mut GameData) {
     let date = "2024-11";
     game_data.add_game(

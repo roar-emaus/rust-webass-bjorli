@@ -6,7 +6,7 @@ pub mod game_scores;
 pub mod game_data_structure;
 pub mod weather;
 
-use game_scores::{add_2021_09, add_2022_02, add_2022_10, add_2024_03, add_2024_11};
+use game_scores::{add_2021_09, add_2022_02, add_2022_10, add_2024_03, add_2024_11, add_2025_11};
 use game_data_structure::GameData;
 use weather::{fetch_weather_data, DailyWeatherData};
 
@@ -22,6 +22,7 @@ pub fn generate_html_table_for_date(date: &str) -> Result<JsValue, JsValue> {
     add_2022_10(&mut game_data);
     add_2024_03(&mut game_data);
     add_2024_11(&mut game_data);
+    add_2025_11(&mut game_data);
 
     if let Some(table_data) = game_data.get_table_for_date(date) {
         let mut table_html = String::from("<table border='1'>");

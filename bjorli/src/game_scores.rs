@@ -58,6 +58,62 @@ pub fn add_2025_11(game_data: &mut GameData) {
             ("Joakim".to_string(), 0),
         ],
     );
+    game_data.add_game(
+        date,
+        "Amerikanske raffle quiz",
+        vec![
+            ("Are".to_string(),    0),
+            ("Roar".to_string(),   5),
+            ("Morten".to_string(), 2),
+            ("Bendik".to_string(), 3),
+            ("Peter".to_string(),  4),
+            ("Magnus".to_string(), 6),
+            ("Trond".to_string(),  1),
+            ("Joakim".to_string(), 7),
+        ],
+    );
+    game_data.add_game(
+        date,
+        "Kortskalle",
+        vec![
+            ("Are".to_string(),    5),
+            ("Roar".to_string(),   4),
+            ("Morten".to_string(), 6),
+            ("Bendik".to_string(), 3),
+            ("Peter".to_string(),  0),
+            ("Magnus".to_string(), 2),
+            ("Trond".to_string(),  1),
+            ("Joakim".to_string(), 7),
+        ],
+    );
+    game_data.add_game(
+        date,
+        "Quizbingoball",
+        vec![
+            ("Are".to_string(),    4),
+            ("Roar".to_string(),   2),
+            ("Morten".to_string(), 1),
+            ("Bendik".to_string(), 3),
+            ("Peter".to_string(),  7),
+            ("Magnus".to_string(), 5),
+            ("Trond".to_string(),  0),
+            ("Joakim".to_string(), 6),
+        ],
+    );
+    game_data.add_game(
+        date,
+        "Sheet 1",
+        vec![
+            ("Are".to_string(),    4),
+            ("Roar".to_string(),   6),
+            ("Morten".to_string(), 0),
+            ("Bendik".to_string(), 2),
+            ("Peter".to_string(),  5),
+            ("Magnus".to_string(), 1),
+            ("Trond".to_string(),  7),
+            ("Joakim".to_string(), 3),
+        ],
+    );
 }
 
 pub fn add_2024_11(game_data: &mut GameData) {
